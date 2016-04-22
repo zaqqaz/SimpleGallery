@@ -1,0 +1,12 @@
+<div class="list">
+    <div class="row">
+        <ul class="list-with-index">
+            <li ng-repeat="exerciseTemplate in $ctrl.exerciseTemplates">
+                <a ui-sref="base.exerciseTemplateEditor({type: exerciseTemplate.name})"
+                   class="full" ng-bind="exerciseTemplate.name"></a>
+                <strong class="index" ng-bind="$index+1"></strong>
+                <span ng-bind="exerciseTemplate.name"></span>
+            </li>
+        </ul>
+    </div>
+</div>

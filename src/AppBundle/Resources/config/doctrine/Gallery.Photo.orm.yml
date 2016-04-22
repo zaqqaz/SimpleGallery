@@ -1,0 +1,35 @@
+CoreDomain\Model\Gallery\Photo:
+    type: entity
+    table: gallery_photo
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        name:
+            type: string
+            unique: true
+            nullable: false
+        params:
+            column: params
+            type: json_array
+            nullable: true
+        isDeleted:
+            column: is_deleted
+            type: boolean
+            nullable: false
+            options:
+                default: 0
+    manyToOne:
+        album:
+            targetEntity: CoreDomain\Model\Gallery\Album
+            joinColumn:
+                name: gallery_album_id
+                referencedColumnName: id
+                onDelete: CASCADE
+        image:
+            targetEntity: CoreDomain\Model\File\Image
+            joinColumn:
+                name: image_id
+                referencedColumnName: id
+                onDelete: SET NULL

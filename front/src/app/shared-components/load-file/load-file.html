@@ -1,0 +1,30 @@
+<div class="load-file"
+     nv-file-drop=""
+     uploader="$ctrl.uploader">
+
+    <div class="load-file-label" ng-if="$ctrl.label">{{$ctrl.label}}</div>
+
+    <div nv-file-over=""
+         uploader="$ctrl.uploader"
+         over-class="file-over-class"
+         class="well drop-zone"
+         ng-class="{'has-label' : $ctrl.label}">
+        <div ng-if="!$ctrl.loading && !$ctrl.error && !$ctrl.success">
+            <input type="file" nv-file-select="" uploader="$ctrl.uploader"/>
+            <br>
+            Select or drag a file
+        </div>
+        <div ng-if="$ctrl.loading || $ctrl.error || $ctrl.success"
+             class="text-center">
+            <strong ng-if="$ctrl.loading">Загрузка<br>...</strong>
+            <strong ng-if="$ctrl.error" class="text-danger">Error<br>
+                {{$ctrl.errorMessage}}<br>
+                <a href="#" ng-click="$ctrl.repeat();">Retry</a>
+            </strong>
+            <strong ng-if="$ctrl.success" class="text-success">Loaded<br>
+                {{$ctrl.successMessage}}<br>
+                <a href="#" ng-click="$ctrl.repeat();">Load another</a>
+            </strong>
+        </div>
+    </div>
+</div>

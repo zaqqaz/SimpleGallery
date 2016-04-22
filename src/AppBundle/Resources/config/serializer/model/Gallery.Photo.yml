@@ -1,0 +1,21 @@
+CoreDomain\Model\Gallery\Photo:
+    exclusion_policy: ALL
+    properties:
+        id:
+            type: integer
+            groups:
+                - api_photo_list
+                - api_photo_get
+        name:
+            type: string
+            groups:
+                - api_photo_list
+                - api_photo_get
+        params:
+            type: array
+            groups:
+                - api_photo_get
+        image:
+            type: CoreDomain\Model\File\Image
+            groups:
+                - api_photo_get

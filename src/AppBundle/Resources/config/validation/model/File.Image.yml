@@ -1,0 +1,6 @@
+CoreDomain\Model\File\Image:
+    properties:
+        file:
+            - File:
+                mimeTypes: ['image/jpeg']
+                groups: ['image_upload']

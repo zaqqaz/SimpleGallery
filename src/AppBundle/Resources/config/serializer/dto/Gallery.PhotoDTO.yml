@@ -1,0 +1,9 @@
+CoreDomain\DTO\Gallery\PhotoDTO:
+    exclusion_policy: ALL
+    properties:
+        id:
+            type: integer
+            groups: [api_photo_create, api_photo_get]
+        name:
+            type: string
+            groups: [api_photo_create, api_photo_get]

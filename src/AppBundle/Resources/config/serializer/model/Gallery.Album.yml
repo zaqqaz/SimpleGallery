@@ -1,0 +1,19 @@
+CoreDomain\Model\Gallery\Album:
+    exclusion_policy: ALL
+    properties:
+        id:
+            type: integer
+            groups:
+                - api_album_get
+        name:
+            type: string
+            groups:
+                - api_album_get
+        description:
+            type: string
+            groups:
+                - api_album_get
+        image:
+            type: CoreDomain\Model\File\Image
+            groups:
+                - api_album_get

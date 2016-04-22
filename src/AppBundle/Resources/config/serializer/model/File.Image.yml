@@ -1,0 +1,22 @@
+CoreDomain\Model\File\Image:
+    exclusion_policy: ALL
+    properties:
+        id:
+            type: integer
+            groups:
+                - api_image_get
+                - api_file_upload
+        path:
+            type: string
+            groups:
+                - api_image_get
+                - api_dictionary_word_get
+                - api_file_upload
+                - api_dictionary_word_search
+        name:
+            type: string
+            groups:
+                - api_image_get
+                - api_dictionary_word_get
+                - api_file_upload
+                - api_dictionary_word_search

@@ -1,0 +1,6 @@
+CoreDomain\Model\File\Audio:
+    properties:
+        file:
+            - File:
+                mimeTypes: ['audio/mpeg', 'audio/vnd.wave']
+                groups: ['audio_upload']

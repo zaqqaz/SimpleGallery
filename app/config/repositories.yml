@@ -1,0 +1,22 @@
+### Repository
+services:
+### Repository
+    app.repository.user.user:
+        class: AppBundle\Repository\User\UserRepository
+        arguments: [@doctrine.orm.default_entity_manager]
+
+    app.repository.user.user_session:
+        class: AppBundle\Repository\User\UserSessionRepository
+        arguments: [@doctrine.orm.default_entity_manager]
+
+    app.repository.gallery.photo:
+        class: AppBundle\Repository\Gallery\PhotoRepository
+        arguments: [@doctrine.orm.default_entity_manager]
+
+    app.repository.gallery.album:
+        class: AppBundle\Repository\Gallery\AlbumRepository
+        arguments: [@doctrine.orm.default_entity_manager]
+
+    app.repository.file.image:
+        class: AppBundle\Repository\File\ImageRepository
+        arguments: [@doctrine.orm.default_entity_manager]

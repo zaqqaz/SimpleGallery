@@ -1,0 +1,57 @@
+CoreDomain\Model\User\UserSettings:
+    type: entity
+    table: user_settings
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        language:
+            type: string
+            length: 2
+            nullable: false
+            options:
+                fixed: true
+                default: ru
+        # тип повторения слов. Варианты: right/wrong, typing, matching.
+        # Согласно данной настройке выбирается способ повторения в календаре повторений слов.
+        wordRepetitionType:
+            column: word_repetition_type
+            type: string
+            nullable: true
+        # признак разрешения рассылки email-уведомлений о необходимости повторять слова
+        allowEmailWordRepetitionNotify:
+            column: allow_email_word_repetition_notify
+            type: boolean
+            nullable: false
+            options:
+                default: true
+        # признак разрешения рассылки административных email-уведомлений
+        allowEmailAdministrativeNotify:
+            column: allow_email_administrative_notify
+            type: boolean
+            nullable: false
+            options:
+                default: true
+        # признак разрешения рассылки SMS-уведомлений о необходимости повторять слова
+        allowSmsWordRepetitionNotify:
+            column: allow_sms_word_repetition_notify
+            type: boolean
+            nullable: false
+            options:
+                default: true
+        # признак разрешения рассылки административных SMS-уведомлений
+        allowSmsAdministrativeNotify:
+            column: allow_sms_administrative_notify
+            type: boolean
+            nullable: false
+            options:
+                default: true
+    oneToOne:
+        user:
+            targetEntity: CoreDomain\Model\User\User
+            inversedBy: settings
+            joinColumn:
+                name: user_id
+                referencedColumnName: id
+                onDelete: CASCADE

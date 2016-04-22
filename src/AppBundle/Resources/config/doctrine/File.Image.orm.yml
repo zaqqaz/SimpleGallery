@@ -1,0 +1,19 @@
+CoreDomain\Model\File\Image:
+    type: entity
+    table: file_image
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        path:
+            type: string
+            nullable: false
+        originalName:
+            column: original_name
+            type: string
+            nullable: false
+        name:
+            column: name
+            type: string
+            nullable: false

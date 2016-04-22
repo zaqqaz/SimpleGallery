@@ -1,0 +1,5 @@
+CoreDomain\DTO\Gallery\PhotoDTO:
+    properties:
+        name:
+            - NotBlank:
+                groups: [api_photo_create]

@@ -1,0 +1,15 @@
+CoreDomain\DTO\Gallery\AlbumDTO:
+    exclusion_policy: ALL
+    properties:
+        name:
+            serialized_name: name
+            type: string
+            groups: [api_album_create,  api_album_update, api_album_get]
+        description:
+            serialized_name: description
+            type: string
+            groups: [api_album_create, api_album_update, api_album_get]
+        image:
+            serialized_name: image
+            type: integer
+            groups: [api_album_create, api_album_update]

@@ -1,0 +1,27 @@
+### User
+app_user:
+    resource: AppBundle\Controller\User\UserController
+    type: rest
+    name_prefix: user_
+
+app_session:
+    resource: AppBundle\Controller\User\UserSessionController
+    type: rest
+    name_prefix: session_
+
+### Education
+api_gallery_album:
+    resource: AppBundle\Controller\Gallery\AlbumController
+    type: rest
+    name_prefix: _api_album
+
+api_gallery_photo:
+    resource: AppBundle\Controller\Gallery\PhotoController
+    type: rest
+    name_prefix: _api_photo
+
+### Media
+api_file:
+    resource: AppBundle\Controller\FileController
+    type: rest
+    name_prefix: _api_media

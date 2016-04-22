@@ -1,0 +1,6 @@
+CoreDomain\Model\File\Video:
+    properties:
+        file:
+            - File:
+                mimeTypes: ['video/avi', 'video/mpeg', 'video/mp4']
+                groups: ['video_upload']

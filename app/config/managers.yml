@@ -1,0 +1,34 @@
+services:
+    # Gallery
+    app.gallery.album:
+        class: AppBundle\Services\Managers\Gallery\AlbumManager
+        arguments:
+            - @doctrine.orm.default_entity_manager
+            - @app.repository.gallery.album
+            - @app.repository.file.image
+
+    app.gallery.photo:
+        class: AppBundle\Services\Managers\Gallery\PhotoManager
+        arguments:
+            - @doctrine.orm.default_entity_manager
+            - @app.repository.gallery.photo
+            - @app.repository.file.image
+            - @jms_serializer
+            - @validator
+
+    # Media
+    app.manager.file:
+        class: AppBundle\Services\Managers\File\FileManager
+        arguments:
+            - @validator
+            - @app.repository.file.image
+
+    # User
+    app.managers.user.user:
+        class: AppBundle\Services\Managers\User\UserManager
+        arguments:
+            - @doctrine.orm.default_entity_manager
+            - @app.repository.user.user
+            - @app.repository.user.user_session
+            - @app.security.user_password_encoder
+            - @validator

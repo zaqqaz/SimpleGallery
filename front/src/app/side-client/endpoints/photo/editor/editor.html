@@ -1,0 +1,13 @@
+<div class="editor">
+    <div ng-if="!$ctrl.savedResult">
+        <exercise-template name="$ctrl.type" editable="true"></exercise-template>
+    </div>
+    <div class="saved-result" ng-if="$ctrl.savedResult == 'SUCCESS'">
+        <p class="success"><strong>Сохранено успешно</strong></p>
+        <a href="" ng-click="$ctrl.reload();">Создать новый</a>
+    </div>
+    <div class="saved-result" ng-if="$ctrl.savedResult == 'FAIL'">
+        <p class="fail"><strong>При сохранении произошла ошибка</strong></p>
+        <a href="" ng-click="$ctrl.reload();">Создать новый</a>
+    </div>
+</div>

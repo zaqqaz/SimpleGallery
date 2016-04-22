@@ -1,0 +1,18 @@
+<div class="container">
+    <h1>Your Albums</h1>
+    <div class="list">
+        <div class="item" ng-repeat="album in $ctrl.albums">
+            <img ng-src="{{album.imageUrl}}" title="{{album.title}}"/>
+            <div class="on-hover">
+                <div class="title">{{album.name}}</div>
+                <div class="description">{{album.description}}</div>
+            </div>
+        </div>
+
+        <div class="item edit" ui-sref="albumEditor({id:'create'})">
+            <span class="icon glyphicon glyphicon-plus"></span>
+        </div>
+    </div>
+
+    <uib-pagination total-items="$ctrl.totalCount" ng-model="$ctrl.currentPage"></uib-pagination>
+</div>

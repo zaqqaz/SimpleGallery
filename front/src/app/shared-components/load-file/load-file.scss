@@ -1,0 +1,13 @@
+.load-file {
+  .drop-zone {
+    margin-top: 20px;
+    border: 2px dashed;
+    &.has-label {
+      padding: 15px;
+      margin-top: 5px;
+    }
+    &.file-over-class {
+      border-color: darken($brand-primary, 50%) !important;
+    }
+  }
+}
