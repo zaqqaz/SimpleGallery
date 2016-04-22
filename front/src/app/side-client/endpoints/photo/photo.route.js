@@ -3,14 +3,14 @@ function routeConfig($stateProvider) {
 
     $stateProvider
         .state('photos', {
-            url: '/exercise-templates',
-            template: '<list-templates class="template"></list-templates>'
+            url: '/photos/:albumId/:page',
+            template: '<list-photos class="photo"></list-photos>'
         });
 
     $stateProvider
-        .state('base.exerciseTemplateEditor', {
-            url: '/exercise-template/:type',
-            template: '<template-editor class="template"></template-editor>'
+        .state('photoEditor', {
+            url: '/photo/:albumId/:photoId',
+            template: '<photo-editor class="photo"></photo-editor>'
         });
 }
 

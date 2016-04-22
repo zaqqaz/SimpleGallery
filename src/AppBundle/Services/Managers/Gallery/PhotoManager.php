@@ -30,7 +30,7 @@ class PhotoManager
         $this->em->beginTransaction();
         try {
             $photo = new Photo();
-            $photo->updateInfo($photoDTO->name, $photoDTO->description, $this->imageRepository->findOneById($photoDTO->image), $album);
+            $photo->updateInfo($photoDTO->name, $this->imageRepository->findOneById($photoDTO->image), $album,  $photoDTO->description);
             $this->photoRepository->addAndSave($photo);
             $this->em->commit();
         } catch (\Exception $e) {

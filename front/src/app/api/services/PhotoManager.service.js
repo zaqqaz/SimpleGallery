@@ -10,12 +10,9 @@ class PhotoManager {
         return this.api.photo.query(queryParams);
     }
 
-    getByName(name) {
-        return this.api.photo.get({name: name});
-    }
-
     save(photo) {
-        return (photo.name) ? this.api.photo.patch(photo) : this.api.photo.save(photo);
+        return (photo.id) ? this.api.photo.patch(photo) :
+            this.api.photo.save(angular.merge(photo));
     }
 }
 

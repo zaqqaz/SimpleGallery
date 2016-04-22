@@ -7,3 +7,10 @@ CoreDomain\DTO\Gallery\PhotoDTO:
         name:
             type: string
             groups: [api_photo_create, api_photo_get]
+        description:
+            type: string
+            groups: [api_photo_create, api_photo_get]
+        image:
+            serialized_name: image
+            type: integer
+            groups: [api_photo_create, api_photo_update]

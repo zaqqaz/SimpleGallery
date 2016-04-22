@@ -25,7 +25,6 @@ class EditorController {
 
     imageLoaded(response) {
         this.album.image = response;
-        console.log(this.album)
     }
 
     save(album) {

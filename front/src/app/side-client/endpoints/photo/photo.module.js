@@ -5,8 +5,8 @@ import editorComponent from './editor/editor.component';
 let module = angular
     .module('template', [])
     .config(routeConfig)
-    .component('templateEditor', editorComponent)
-    .component('listTemplates', listComponent)
+    .component('photoEditor', editorComponent)
+    .component('listPhotos', listComponent)
     ;
 
 export default module = module.name;

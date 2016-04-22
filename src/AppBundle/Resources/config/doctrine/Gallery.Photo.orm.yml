@@ -8,8 +8,10 @@ CoreDomain\Model\Gallery\Photo:
     fields:
         name:
             type: string
-            unique: true
             nullable: false
+        description:
+            type: string
+            nullable: true
         params:
             column: params
             type: json_array

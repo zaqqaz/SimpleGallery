@@ -4,6 +4,7 @@ class ListController {
     constructor($log, $stateParams, PhotoManager, Loader) {
         "ngInject";
         this._PhotoManager = PhotoManager;
+        this.albumId = $stateParams.albumId;
         this.page = $stateParams.page;
         this._Loader = Loader;
         this.photos = [];
@@ -20,16 +21,15 @@ class ListController {
 
     set currentPage(page) {
         this.page = page;
-        this.loadPhotos();
+        this.loadPhotos().then(() => this.initialized = true);
     }
 
     loadPhotos() {
         this._Loader.start();
-        this._PhotoManager.query({limit: this.limit, offset: this.page * this.limit})
+        return this._PhotoManager.query({album_id: this.albumId, limit: this.limit, offset: (this.page * this.limit || 0) })
             .then(([photos, headers])=> {
                 this.photos = photos;
                 this.totalCount = headers['x-total-count'];
-                console.log(this.totalCount);
                 this._Loader.complete();
             })
     }

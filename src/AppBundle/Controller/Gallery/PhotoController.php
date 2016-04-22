@@ -34,26 +34,15 @@ class PhotoController extends Controller
      *     "photoDTO",
      *     converter="fos_rest.request_body",
      *     options={
-     *         "deserializationContext"={"groups"="api_photo_request"}
+     *         "deserializationContext"={"groups"="api_photo_create"}
      *     }
      * )
      */
     public function createPhotoAction(PhotoDTO $photoDTO, Album $album)
     {
         $this
-            ->get('app.repository.gallery.photo')
-            ->addPhoto($photoDTO, $album);
-    }
-
-    /**
-     * @Rest\Get("/photos/{id}")
-     * @Rest\View(serializerGroups="api_photo_get", statusCode=200)
-     */
-    public function getPhotoAction($id)
-    {
-        return $this
             ->get('app.gallery.photo')
-            ->getPhoto($id);
+            ->addPhoto($photoDTO, $album);
     }
 
     /**

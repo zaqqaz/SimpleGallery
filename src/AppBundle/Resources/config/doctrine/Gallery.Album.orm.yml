@@ -8,12 +8,11 @@ CoreDomain\Model\Gallery\Album:
     fields:
         name:
             type: string
-            unique: true
             nullable: false
         description:
             column: description
             type: text
-            nullable: false
+            nullable: true
         isDeleted:
             column: is_deleted
             type: boolean

@@ -1,64 +1,66 @@
-.lesson {
-  .card {
-    padding: 10px;
-    padding-top: 20px;
-    background-color: rgba(255, 255, 255, 0.86);
-    border: 1px solid #f0f0f0;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
-  }
+.photo {
+  text-align: center;
+  @extend .flex-full-centered;
+  .list {
+    @extend .clearfix;
 
-  .load-file > .well {
-    border-color: $brand-primary;
-  }
-
-  .exercise-list {
-    list-style: none;
-    padding: 0;
-    li {
-      padding: 15px;
-      display: block;
-      width: 100%;
-      background: #fff;
-      border-bottom: 1px solid rgba(211, 211, 211, 0.5);
+    .item {
+      width: 200px;
+      height: 200px;
+      background: rgba(255, 255, 255, 0.7);
+      float: left;
+      margin: 10px;
       position: relative;
-      span {
-        color: $stable-text;
-        font-weight: 500;
+      border-radius: 5px;
+      overflow: hidden;
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: 5px;
       }
-      &:hover {
-        span {
-          text-decoration: underline;
+
+      &.edit {
+        background: rgba(255, 255, 255, 0.5);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.7);
+          .icon {
+            opacity: .4;
+          }
+        }
+        .icon {
+          font-size: 125px;
+          color: #000;
+          opacity: .2;
         }
       }
-      .index {
-        width: auto;
-        display: block;
-        float: left;
-        font-size: 14px;
-        margin-top: -5px;
-        font-weight: 900;
-        background: $brand-primary;
-        border-radius: 100px;
-        height: auto;
-        margin-right: 20px;
-        text-align: center;
-        padding: 5px;
+      .on-hover {
         color: #fff;
-        min-width: 30px;
-        min-height: 30px;
+        font-weight: bold;
+        text-align: center;
+        background: rgba(0, 0, 0, 0.6);
+        display: none;
+        .title {
+          font-size: 14px;
+        }
+
+      }
+      &:hover {
+        .on-hover {
+          @extend .flex-full-centered;
+          position: absolute;
+          top: 0;
+        }
       }
     }
   }
-
-  .saved-result {
+  h1 {
+    color: #fff;
     text-align: center;
-    padding: 30px;
-    font-size: 20px;
-    .success {
-      color: $brand-success;
-    }
-    .fail {
-      color: $brand-danger;
-    }
+    margin-bottom: 40px;
   }
 }

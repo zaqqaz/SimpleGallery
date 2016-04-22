@@ -12,8 +12,8 @@ class AlbumManager {
         return this.api.album.get({id: AlbumId});
     }
 
-    query(limit, offset) {
-        return this.api.album.query({limit: limit, offset: offset});
+    query() {
+        return this.api.album.query();
     }
 
     save(album) {

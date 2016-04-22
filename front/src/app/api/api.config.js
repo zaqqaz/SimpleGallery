@@ -13,10 +13,11 @@ function config(apiProvider, API_URL) {
         .addHttpAction('PATCH', 'patch', {params: {id: '@id'}});
 
     apiProvider.endpoint('photo')
-        .route('photos/:id')
+        .route('albums/:album_id/photos/:id')
         .model(Photo)
         .addHttpAction('GET', 'query', {isArray: true, headersForReading: ['x-total-count']})
-        .addHttpAction('PATCH', 'patch', {params: {id: '@id'}});
+        .addHttpAction('POST', 'save', {params: {album_id: '@album_id'}})
+        .addHttpAction('PATCH', 'patch', {params: {album_id: '@album_id'}});
 }
 
 export default config;

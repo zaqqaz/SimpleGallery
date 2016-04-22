@@ -11,6 +11,11 @@ CoreDomain\Model\Gallery\Photo:
             groups:
                 - api_photo_list
                 - api_photo_get
+        description:
+            type: string
+            groups:
+                - api_photo_list
+                - api_photo_get
         params:
             type: array
             groups:
@@ -19,3 +24,4 @@ CoreDomain\Model\Gallery\Photo:
             type: CoreDomain\Model\File\Image
             groups:
                 - api_photo_get
+                - api_photo_create
