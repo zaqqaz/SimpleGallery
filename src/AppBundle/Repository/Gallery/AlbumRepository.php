@@ -26,6 +26,14 @@ class AlbumRepository implements AlbumRepositoryInterface
             ->getResult();
     }
 
+    public function getTotalCount() {
+        return $this->em->createQueryBuilder()
+            ->select('count(al)')
+            ->from(Album::class, 'al')
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
+
     public function addAndSave(Album $entity)
     {
         $this->em->persist($entity);

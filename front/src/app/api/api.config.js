@@ -9,7 +9,7 @@ function config(apiProvider, API_URL) {
     apiProvider.endpoint('album')
         .route('albums/:id')
         .model(Album)
-        .addHttpAction('GET', 'query', {isArray: true, params: {course: '@course', unit: '@unit', lesson: '@lesson', lesson_part: '@lesson_part'}})
+        .addHttpAction('GET', 'query', {isArray: true, headersForReading: ['x-total-count']})
         .addHttpAction('PATCH', 'patch', {params: {id: '@id'}});
 
     apiProvider.endpoint('photo')

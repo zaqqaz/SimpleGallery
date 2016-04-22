@@ -9,6 +9,6 @@
     'use strict';
     angular
         .module('parameters.config', [])
-        .constant('API_URL', 'http://alibra.vagrant/app_dev.php/api/')
+        .constant('API_URL', 'http://simplegallery.vagrant/app_dev.php/api/')
         .constant('IS_DEBUG_MODE', true)
 })();

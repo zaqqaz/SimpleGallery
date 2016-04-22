@@ -18,6 +18,7 @@ nelmio_cors:
         allow_origin: ['*']
         allow_headers: ['origin', 'content-type', 'X-Custom-Auth', 'authorization']
         allow_methods: ['POST', 'PUT', 'GET', 'DELETE', 'PATCH', 'OPTIONS']
+        expose_headers: ['X-Total-Count']
         max_age: 3600
 
 monolog:

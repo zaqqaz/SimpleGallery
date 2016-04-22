@@ -26,9 +26,9 @@ To prepare your local dev environment just run `vagrant up`. All actions to setu
 ### Front-end
 Just type `cd front` and then:
 * `gulp` or `gulp build` to build an optimized CLIENT version of your application in `/dist`
-* `gulp build --side admin` to build an optimized ADMIN version of your application in `/dist`
+* `gulp build --side admin` to build an optimized ADMIN version of your application in `/dist` -- not actual now
 * `gulp serve` to launch a browser sync server on your CLIENT source files
-* `gulp serve --side admin` to launch a browser sync server on your ADMIN source files
+* `gulp serve --side admin` to launch a browser sync server on your ADMIN source files -- not actual now
 
 ### Ansible verbocity level
 

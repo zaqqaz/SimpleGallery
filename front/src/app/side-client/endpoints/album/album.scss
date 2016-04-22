@@ -1,7 +1,10 @@
-.album{
-@extend .flex-full-centered;
-  .list{
-    .item{
+.album {
+  text-align: center;
+  @extend .flex-full-centered;
+  .list {
+    @extend .clearfix;
+
+    .item {
       width: 200px;
       height: 200px;
       background: rgba(255, 255, 255, 0.7);
@@ -10,38 +13,38 @@
       position: relative;
       border-radius: 5px;
       overflow: hidden;
-      img{
+      img {
         width: 100%;
         height: 100%;
         border-radius: 5px;
       }
 
-      &.edit{
+      &.edit {
         background: rgba(255, 255, 255, 0.5);
         display: flex;
         flex-direction: column;
         justify-content: center;
         text-align: center;
 
-        &:hover{
+        &:hover {
           background: rgba(255, 255, 255, 0.7);
-          .icon{
+          .icon {
             opacity: .4;
           }
         }
-        .icon{
+        .icon {
           font-size: 125px;
           color: #000;
           opacity: .2;
         }
       }
-      .on-hover{
+      .on-hover {
         color: #fff;
         font-weight: bold;
         text-align: center;
         background: rgba(0, 0, 0, 0.6);
         display: none;
-        .title{
+        .title {
           font-size: 14px;
         }
 
@@ -55,7 +58,7 @@
       }
     }
   }
-  h1{
+  h1 {
     color: #fff;
     text-align: center;
     margin-bottom: 40px;

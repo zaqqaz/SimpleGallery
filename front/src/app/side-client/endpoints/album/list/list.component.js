@@ -7,14 +7,14 @@ class ListController {
         this.page = $stateParams.page;
         this._Loader = Loader;
         this.albums = [];
-        this.totalCount = 100;
+        this.totalCount = 0;
+        this.itemsPerPage = 0;
         this.limit = 9;
 
         this.activate();
     }
 
     activate() {
-        this._Loader.start();
         this.loadAlbums();
     }
 
@@ -24,9 +24,12 @@ class ListController {
     }
 
     loadAlbums(){
+        this._Loader.start();
         this._AlbumManager.query({limit: this.limit, offset:this.page * this.limit})
-            .then((albums)=> {
+            .then(([albums, headers])=> {
                 this.albums = albums;
+                this.totalCount = headers['x-total-count'];
+                console.log(this.totalCount);
                 this._Loader.complete();
             })
     }

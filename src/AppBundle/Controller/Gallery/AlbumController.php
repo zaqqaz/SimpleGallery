@@ -3,6 +3,7 @@
 namespace AppBundle\Controller\Gallery;
 
 use CoreDomain\DTO\Gallery\AlbumDTO;
+use FOS\RestBundle\View\View;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use Symfony\Component\HttpFoundation\Request;
@@ -17,7 +18,9 @@ class AlbumController extends Controller
      */
     public function getAlbumsAction()
     {
-        return $this->get('app.repository.gallery.album')->findAll();
+        $albums = $this->get('app.repository.gallery.album')->findAll();
+        $totalCount = $this->get('app.repository.gallery.album')->getTotalCount()[1];
+        return View::create($albums, 200, ['X-Total-Count' => $totalCount]);
     }
 
     /**
