@@ -6,7 +6,7 @@
 $icon-font-path: "../../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
 
 $bg: #5C258D;
-$bg-gradient: linear-gradient(to left, #5C258D , #4389A2);
+$bg-gradient: linear-gradient(to left, #5C258D, #4389A2);
 $stable: #ebecf3;
 $stable-text: #042A54;
 $brand-primary: #ffee2b !default;
@@ -41,7 +41,7 @@ $side-nav-width: 225px !default;
  */
 // injector
 // endinjector
-html, body, [ui-view]{
+html, body, [ui-view] {
   width: 100%;
   height: 100%;
 }
@@ -73,17 +73,20 @@ a.full {
 .load-file > .well {
   border-color: $brand-primary;
 }
-[ui-sref]{
+
+[ui-sref] {
   cursor: pointer;
 }
-.flex-full-centered{
-  width:100%;
+
+.flex-full-centered {
+  width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-.back{
+
+.back {
   @extend .flex-full-centered;
   width: 60px;
   height: 100%;
@@ -92,31 +95,33 @@ a.full {
   left: 0;
   top: 0;
   text-align: center;
-  .icon{
+  .icon {
     color: #fff;
     font-size: 30px;
     opacity: .2;
   }
-  &:hover{
+  &:hover {
     background: rgba(255, 255, 255, 0.4);
-    .icon{
+    .icon {
       opacity: .7;
     }
   }
 }
+
 .saved-result {
   color: #fff;
-  a{
+  a {
     color: $brand-primary;
   }
 }
-.pagination > li > a, .pagination > li > span{
+
+.pagination > li > a, .pagination > li > span {
   background: none;
   border: none;
 }
 
 .pagination > .active > a, .pagination > .active > a:hover, .pagination > .active > a:focus, .pagination > .active > span, .pagination > .active > span:hover, .pagination > .active > span:focus, .pagination > li > a:hover, .pagination > li > a:focus, .pagination > li > span:hover, .pagination > li > span:focus {
-    color:#5C258D;
-    background: $brand-primary;
-    border: none;
+  color: #5C258D;
+  background: $brand-primary;
+  border: none;
 }

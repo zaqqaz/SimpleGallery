@@ -15,7 +15,7 @@ class EditorController {
     }
 
     _activate() {
-        if(!this.isCreateMode) {
+        if (!this.isCreateMode) {
             this._AlbumManager.getById(this.id)
                 .then((album) => {
                     this.album = album;

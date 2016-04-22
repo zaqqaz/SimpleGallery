@@ -18,7 +18,8 @@ class ApiUserProvider implements UserProviderInterface
     public function __construct(
         UserRepositoryInterface $userRepository,
         UserSessionRepositoryInterface $userSessionRepository
-    ) {
+    )
+    {
         $this->userRepository = $userRepository;
         $this->userSessionRepository = $userSessionRepository;
     }

@@ -23,7 +23,7 @@ class UserSession
 
     public function finish()
     {
-        if(!$this->logoutDate) {
+        if (!$this->logoutDate) {
             $this->logoutDate = new \DateTime();
         }
     }

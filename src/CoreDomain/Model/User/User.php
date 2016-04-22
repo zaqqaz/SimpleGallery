@@ -45,7 +45,7 @@ class User implements AdvancedUserInterface
         $this->email = $email;
         $this->password = $password->getPassword();
         $this->salt = $password->getSalt();
-        if(!$roles) {
+        if (!$roles) {
             $roles = [self::ROLE_USER];
         }
         $this->roles = $roles;
@@ -59,7 +59,7 @@ class User implements AdvancedUserInterface
 
     public function logout()
     {
-        if($this->session instanceof UserSession) {
+        if ($this->session instanceof UserSession) {
             $this->session->finish();
         }
     }

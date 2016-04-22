@@ -18,7 +18,7 @@ abstract class File
         $this->file = $file;
         $this->originalName = $file->getClientOriginalName();
         $this->name = md5(uniqid()) . '.' . $file->getClientOriginalExtension();
-        $this->path = '/files/'.$this->getUploadDir();
+        $this->path = '/files/' . $this->getUploadDir();
     }
 
     public function getId()
@@ -54,7 +54,7 @@ abstract class File
 
     public function setFullPath($host)
     {
-        $this->path = $host.$this->path;
+        $this->path = $host . $this->path;
     }
 
     public abstract function getUploadDir();

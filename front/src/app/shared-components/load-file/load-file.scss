@@ -1,4 +1,8 @@
 .load-file {
+  text-align: left;
+  a {
+    color: $bg;
+  }
   .drop-zone {
     margin-top: 20px;
     border: 2px dashed;

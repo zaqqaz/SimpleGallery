@@ -32,7 +32,7 @@ class FileManager
         $file = new $fileClass($uploadedFile);
 
         $errors = $this->validator->validate($file, null, $file->getValidationGroup());
-        if(count($errors) > 0) {
+        if (count($errors) > 0) {
             throw new ValidationException('File validation error', $errors);
         }
 

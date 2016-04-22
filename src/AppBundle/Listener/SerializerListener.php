@@ -17,8 +17,8 @@ class SerializerListener implements EventSubscriberInterface
 
     public function onPreSerialize(PreSerializeEvent $event)
     {
-        if(is_a($file = $event->getObject(), 'CoreDomain\Model\File\File')) {
-            $file->setFullPath($_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST']);
+        if (is_a($file = $event->getObject(), 'CoreDomain\Model\File\File')) {
+            $file->setFullPath($_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST']);
         }
     }
 }

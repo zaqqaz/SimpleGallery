@@ -47,8 +47,7 @@ class PhotoController extends Controller
     {
         $this
             ->get('app.repository.gallery.photo')
-            ->addPhoto($photoRequestDTO)
-        ;
+            ->addPhoto($photoRequestDTO);
     }
 
     /**
@@ -59,8 +58,7 @@ class PhotoController extends Controller
     {
         return $this
             ->get('app.gallery.photo')
-            ->getPhoto($id)
-            ;
+            ->getPhoto($id);
     }
 
     /**
@@ -78,8 +76,7 @@ class PhotoController extends Controller
     {
         $this
             ->get('app.gallery.photo')
-            ->updatePhoto($id, $photoRequestDTO)
-        ;
+            ->updatePhoto($id, $photoRequestDTO);
     }
 
     /**

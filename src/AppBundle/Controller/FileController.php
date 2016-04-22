@@ -14,7 +14,7 @@ class FileController extends Controller
      */
     public function uploadAction(Request $request, $type)
     {
-        foreach($request->files as $file) {
+        foreach ($request->files as $file) {
             return $this->get('app.manager.file')->upload($file, $type);
         }
     }

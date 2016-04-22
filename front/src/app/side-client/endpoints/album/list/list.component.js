@@ -23,9 +23,9 @@ class ListController {
         this.loadAlbums();
     }
 
-    loadAlbums(){
+    loadAlbums() {
         this._Loader.start();
-        this._AlbumManager.query({limit: this.limit, offset:this.page * this.limit})
+        this._AlbumManager.query({limit: this.limit, offset: this.page * this.limit})
             .then(([albums, headers])=> {
                 this.albums = albums;
                 this.totalCount = headers['x-total-count'];

@@ -18,7 +18,8 @@ class AlbumRepository implements AlbumRepositoryInterface
         $this->em = $em;
     }
 
-    public function findAll() {
+    public function findAll()
+    {
         return $this->em->createQueryBuilder()
             ->select('al')
             ->from(Album::class, 'al')
@@ -26,7 +27,8 @@ class AlbumRepository implements AlbumRepositoryInterface
             ->getResult();
     }
 
-    public function getTotalCount() {
+    public function getTotalCount()
+    {
         return $this->em->createQueryBuilder()
             ->select('count(al)')
             ->from(Album::class, 'al')

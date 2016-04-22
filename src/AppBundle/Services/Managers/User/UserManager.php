@@ -44,7 +44,7 @@ class UserManager
     {
         $user = new User($userDTO->getEmail(), new Password($this->passwordEncoder, $userDTO->getPassword()), $userDTO->getRoles());
 
-        if(count($validationErrors = $this->validator->validate($user)) > 0) {
+        if (count($validationErrors = $this->validator->validate($user)) > 0) {
             throw new ValidationException('Bad request', $validationErrors);
         }
         $this->userRepository->addAndSave($user);
@@ -55,7 +55,7 @@ class UserManager
     {
         $user = $this->userRepository->findOneByEmail($email);
 
-        if(!$user || !$this->passwordEncoder->isPasswordValid($password, $user->getPassword(), $user->getSalt())) {
+        if (!$user || !$this->passwordEncoder->isPasswordValid($password, $user->getPassword(), $user->getSalt())) {
             throw new EntityNotFoundException('Неверный логин или пароль');
         }
 
@@ -111,8 +111,7 @@ class UserManager
             }
             $this->userRepository->addAndSave($user);
             $this->em->commit();
-        }
-        catch(\Exception $e) {
+        } catch (\Exception $e) {
             $this->em->rollback();
             throw $e;
         }
@@ -126,7 +125,7 @@ class UserManager
 
     private function getRole($roleParam)
     {
-        switch($roleParam) {
+        switch ($roleParam) {
             case 'teacher':
                 return User::ROLE_TEACHER;
                 break;
@@ -149,7 +148,7 @@ class UserManager
             throw new \Exception("Operation is forbidden for this user role");
         }
 
-        foreach($teacherIds as $teacherId) {
+        foreach ($teacherIds as $teacherId) {
             $teacher = $this->userRepository->findOneById($teacherId);
             if (!$teacher) {
                 throw new \Exception("No teacher entry");
@@ -168,7 +167,7 @@ class UserManager
             throw new \Exception("Operation is forbidden for this user role");
         }
 
-        foreach($studentIds as $studentId) {
+        foreach ($studentIds as $studentId) {
             $student = $this->userRepository->findOneById($studentId);
             if (!$student) {
                 throw new \Exception("No student entry");
@@ -187,7 +186,7 @@ class UserManager
             throw new \Exception("Operation is forbidden for this user role");
         }
 
-        foreach($employerIds as $employerId) {
+        foreach ($employerIds as $employerId) {
             $employer = $this->userRepository->findOneById($employerId);
             if (!$employer) {
                 throw new \Exception("No employer entry");
@@ -227,8 +226,7 @@ class UserManager
         foreach ($user->getTeachers() as $teacher) {
             if (!$profileDTO->teachers || !in_array($teacher->getId(), $profileDTO->teachers)) {
                 $this->userRepository->deleteTeacherByUser($user, $teacher);
-            }
-            else {
+            } else {
                 $profileDTO->teachers = array_diff($profileDTO->teachers, array($teacher->getId()));
             }
         }
@@ -236,26 +234,23 @@ class UserManager
         foreach ($user->getEmployers() as $employer) {
             if (!$profileDTO->employers || !in_array($employer->getId(), $profileDTO->employers)) {
                 $this->userRepository->deleteEmployerByUser($user, $employer);
-            }
-            else {
+            } else {
                 $profileDTO->employers = array_diff($profileDTO->employers, array($employer->getId()));
             }
         }
 
-        foreach($user->getStudents() as $student) {
+        foreach ($user->getStudents() as $student) {
             if (!$profileDTO->students || !in_array($student->getId(), $profileDTO->students)) {
                 $this->userRepository->deleteStudentByTeacher($user, $student);
-            }
-            else {
+            } else {
                 $profileDTO->students = array_diff($profileDTO->students, array($student->getId()));
             }
         }
 
-        foreach($user->getEmployees() as $employee) {
+        foreach ($user->getEmployees() as $employee) {
             if (!$profileDTO->employees || !in_array($employee->getId(), $profileDTO->employees)) {
                 $this->userRepository->deleteEmployeeByEmployer($user, $employee);
-            }
-            else {
+            } else {
                 $profileDTO->employees = array_diff($profileDTO->employees, array($employee->getId()));
             }
         }

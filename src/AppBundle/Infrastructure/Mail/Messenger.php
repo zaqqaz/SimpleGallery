@@ -46,7 +46,8 @@ class Messenger implements MessengerInterface
         EngineInterface $templating,
         TranslatorInterface $translator,
         $from
-    ) {
+    )
+    {
         $this->mailer = $mailer;
         $this->templating = $templating;
         $this->translator = $translator;

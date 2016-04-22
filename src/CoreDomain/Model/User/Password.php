@@ -19,7 +19,7 @@ class Password
     {
         $this->encoder = $encoder;
         $this->plainPassword = $password;
-        if(!$password) {
+        if (!$password) {
             $this->generatePassword();
         }
         $this->generateSalt();

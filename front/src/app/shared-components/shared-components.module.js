@@ -24,7 +24,7 @@ let sharedComponents = angular.module('shared-components', [
     .directive('clickOnce', () => new clickOnce)
     .directive('restrictInput', () => new restrictInput)
     .component('loadFile', loadFile)
-;
+    ;
 
 export default sharedComponents = sharedComponents.name;
 

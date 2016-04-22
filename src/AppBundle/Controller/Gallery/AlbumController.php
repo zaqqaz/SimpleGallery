@@ -38,7 +38,6 @@ class AlbumController extends Controller
     {
         $this
             ->get('app.gallery.album')
-            ->addAlbum($albumDTO)
-        ;
+            ->addAlbum($albumDTO);
     }
 }

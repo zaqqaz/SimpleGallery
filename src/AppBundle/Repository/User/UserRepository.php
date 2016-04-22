@@ -87,7 +87,7 @@ class UserRepository implements UserRepositoryInterface
             ->addOrderBy('u.lastName', 'ASC')
             ->addOrderBy('u.firstName', 'ASC')
             ->addOrderBy('u.middleName', 'ASC')
-            ->setParameter('role', '%'.$role.'%')
+            ->setParameter('role', '%' . $role . '%')
             ->getQuery()
             ->getResult();
         return $result;
@@ -192,7 +192,7 @@ class UserRepository implements UserRepositoryInterface
             ->addOrderBy('u.lastName', 'ASC')
             ->addOrderBy('u.firstName', 'ASC')
             ->addOrderBy('u.middleName', 'ASC')
-            ->setParameter('searchStr', '%'.trim($searchStr).'%')
+            ->setParameter('searchStr', '%' . trim($searchStr) . '%')
             ->getQuery()
             ->getResult();
 

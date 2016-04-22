@@ -15,7 +15,8 @@ class PhotoRepository implements PhotoRepositoryInterface
         $this->em = $em;
     }
 
-    public function findAll() {
+    public function findAll()
+    {
         return $this->em->createQueryBuilder()
             ->select('p')
             ->from(Photo::class, 'p')

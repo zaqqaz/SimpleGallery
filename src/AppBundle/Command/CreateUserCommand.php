@@ -22,8 +22,7 @@ class CreateUserCommand extends ContainerAwareCommand
                 new InputArgument('email', InputArgument::REQUIRED, 'Email'),
                 new InputArgument('password', InputArgument::REQUIRED, 'Password'),
                 new InputArgument('roles', InputArgument::IS_ARRAY | InputArgument::OPTIONAL, 'Roles (separate multiple roles with a space)'),
-            ))
-        ;
+            ));
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -49,7 +48,7 @@ class CreateUserCommand extends ContainerAwareCommand
         $questions = array();
         if (!$input->getArgument('email')) {
             $question = new Question('Please choose a email:');
-            $question->setValidator(function($email) {
+            $question->setValidator(function ($email) {
                 if (empty($email)) {
                     throw new \Exception('Email can not be empty');
                 }
@@ -60,7 +59,7 @@ class CreateUserCommand extends ContainerAwareCommand
 
         if (!$input->getArgument('password')) {
             $question = new Question('Please choose a password:');
-            $question->setValidator(function($password) {
+            $question->setValidator(function ($password) {
                 if (empty($password)) {
                     throw new \Exception('Password can not be empty');
                 }
