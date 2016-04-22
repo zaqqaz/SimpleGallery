@@ -13,10 +13,10 @@ function config(apiProvider, API_URL) {
         .addHttpAction('PATCH', 'patch', {params: {id: '@id'}});
 
     apiProvider.endpoint('photo')
-        .route('exercise-templates/:name')
+        .route('photos/:id')
         .model(Photo)
-        .addHttpAction('GET', 'query', {isArray: true})
-        .addHttpAction('PATCH', 'patch', {params: {name: '@name'}});
+        .addHttpAction('GET', 'query', {isArray: true, headersForReading: ['x-total-count']})
+        .addHttpAction('PATCH', 'patch', {params: {id: '@id'}});
 }
 
 export default config;

@@ -4,6 +4,7 @@ namespace AppBundle\Controller\Gallery;
 
 
 use CoreDomain\DTO\Gallery\PhotoDTO;
+use CoreDomain\Model\Gallery\Album;
 use JMS\Serializer\DeserializationContext;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -18,36 +19,30 @@ class PhotoController extends Controller
      * @Rest\GET("/albums/{id}/photos")
      * @Rest\View(serializerGroups="api_photo_list", statusCode=200)
      */
-    public function getPhotosAction(Request $request)
+    public function getPhotosAction(Request $request, Album $album)
     {
-//        $params = $request->query->all();
-//        $limit = $request->query->get('limit');
-//        $offset = $request->query->get('offset');
-//        $photos = $this->get('app.gallery.photo')->getPhotosByDTO($params, $limit, $offset);
-//
-//        $response = new Response($photos['responseData']);
-//        $response->headers->set('X-total-count', $photos['count']);
-
-        return $this->get('app.repository.gallery.photo')->findAll();
-//        return View::create($this->get('app.repository.gallery.photo')->findAll(), 200, ['X-Total-Count' => 200]);
+        $photos = $this->get('app.repository.gallery.photo')
+            ->findByAlbum($album, $request->get('limit',100), $request->get('offset', 0));
+        $totalCount = $this->get('app.repository.gallery.photo')->getTotalCount()[1];
+        return View::create($photos, 200, ['X-Total-Count' => $totalCount]);
     }
 
     /**
-     * @Rest\Post("/photos")
+     * @Rest\Post("/albums/{id}/photos")
      * @Rest\View(statusCode=201)
      * @ParamConverter(
-     *     "photoRequestDTO",
+     *     "photoDTO",
      *     converter="fos_rest.request_body",
      *     options={
      *         "deserializationContext"={"groups"="api_photo_request"}
      *     }
      * )
      */
-    public function createPhotoAction(PhotoDTO $photoRequestDTO)
+    public function createPhotoAction(PhotoDTO $photoDTO, Album $album)
     {
         $this
             ->get('app.repository.gallery.photo')
-            ->addPhoto($photoRequestDTO);
+            ->addPhoto($photoDTO, $album);
     }
 
     /**

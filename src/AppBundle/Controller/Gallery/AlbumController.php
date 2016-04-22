@@ -16,9 +16,10 @@ class AlbumController extends Controller
      * @Rest\Get("/albums")
      * @Rest\View(serializerGroups={"api_album_get", "api_image_get"}, statusCode=200)
      */
-    public function getAlbumsAction()
+    public function getAlbumsAction(Request $request)
     {
-        $albums = $this->get('app.repository.gallery.album')->findAll();
+        $albums = $this->get('app.repository.gallery.album')
+            ->findAll($request->get('limit',100), $request->get('offset', 0));
         $totalCount = $this->get('app.repository.gallery.album')->getTotalCount()[1];
         return View::create($albums, 200, ['X-Total-Count' => $totalCount]);
     }

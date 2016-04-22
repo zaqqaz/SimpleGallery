@@ -13,8 +13,6 @@ services:
             - @doctrine.orm.default_entity_manager
             - @app.repository.gallery.photo
             - @app.repository.file.image
-            - @jms_serializer
-            - @validator
 
     # Media
     app.manager.file:

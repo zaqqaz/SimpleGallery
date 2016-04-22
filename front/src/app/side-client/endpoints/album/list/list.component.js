@@ -15,7 +15,7 @@ class ListController {
     }
 
     activate() {
-        this.loadAlbums();
+        this.loadAlbums().then(() => this.initialized = true);
     }
 
     set currentPage(page) {
@@ -25,11 +25,10 @@ class ListController {
 
     loadAlbums() {
         this._Loader.start();
-        this._AlbumManager.query({limit: this.limit, offset: this.page * this.limit})
+        return this._AlbumManager.query({limit: this.limit, offset: this.page * this.limit})
             .then(([albums, headers])=> {
                 this.albums = albums;
                 this.totalCount = headers['x-total-count'];
-                console.log(this.totalCount);
                 this._Loader.complete();
             })
     }

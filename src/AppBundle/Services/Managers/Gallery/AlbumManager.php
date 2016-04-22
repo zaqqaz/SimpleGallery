@@ -35,6 +35,5 @@ class AlbumManager
             $this->em->rollback();
             throw $e;
         }
-
     }
 }

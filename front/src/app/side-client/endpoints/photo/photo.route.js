@@ -2,7 +2,7 @@ function routeConfig($stateProvider) {
     'ngInject';
 
     $stateProvider
-        .state('base.exerciseTemplates', {
+        .state('photos', {
             url: '/exercise-templates',
             template: '<list-templates class="template"></list-templates>'
         });

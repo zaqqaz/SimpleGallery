@@ -1,6 +1,6 @@
 import config from './api.config';
 import AlbumManager from './services/AlbumManager.service'
-import PhotoManager from './services/ExerciseTemplateManager.service'
+import PhotoManager from './services/PhotoManager.service'
 
 let api = angular
     .module('api', ['ng-rest-api'])

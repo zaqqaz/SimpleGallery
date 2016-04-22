@@ -18,11 +18,13 @@ class AlbumRepository implements AlbumRepositoryInterface
         $this->em = $em;
     }
 
-    public function findAll()
+    public function findAll($limit, $offset)
     {
         return $this->em->createQueryBuilder()
             ->select('al')
             ->from(Album::class, 'al')
+            ->setMaxResults($limit)
+            ->setFirstResult($offset)
             ->getQuery()
             ->getResult();
     }
