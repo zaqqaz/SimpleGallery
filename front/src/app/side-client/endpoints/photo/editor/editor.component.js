@@ -29,7 +29,7 @@ class EditorController {
     }
 
     save(photo) {
-        if(!photo.name || photo.image.id){
+        if(!photo.name || !photo.image.id){
             throw new Error('Please fill the required fields');
         }
 

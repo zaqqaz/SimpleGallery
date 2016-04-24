@@ -28,7 +28,7 @@ class EditorController {
     }
 
     save(album) {
-        if(!album.name || album.image.id){
+        if(!album.name || !album.image.id){
             throw new Error('Please fill the required fields');
         }
 
