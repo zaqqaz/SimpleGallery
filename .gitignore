@@ -18,3 +18,5 @@ node_modules/
 jspm_packages/
 /ansible/roles/galaxy
 web/parameters.config.js
+npm-debug.log
+composer.lock
