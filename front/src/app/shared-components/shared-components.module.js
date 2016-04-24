@@ -11,6 +11,7 @@ import imageViewer from './image-viewer/image-viewer.directive';
 // Services
 import AuthInterceptor from  './auth/auth.interceptor';
 import Loader from './loader/loader.service';
+import {exceptionConfig, extendExceptionHandler} from './exceptions/exceptionHandler';
 
 //components
 import loadFile from './load-file/load-file.component';
@@ -26,6 +27,8 @@ let sharedComponents = angular.module('shared-components', [
     .directive('restrictInput', () => new restrictInput)
     .directive('imageViewer', imageViewer)
     .component('loadFile', loadFile)
+    .factory('extendExceptionHandler', extendExceptionHandler)
+    .config(exceptionConfig)
     ;
 
 export default sharedComponents = sharedComponents.name;

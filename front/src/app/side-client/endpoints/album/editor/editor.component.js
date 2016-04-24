@@ -28,6 +28,10 @@ class EditorController {
     }
 
     save(album) {
+        if(!album.name || album.image.id){
+            throw new Error('Please fill the required fields');
+        }
+
         return this._AlbumManager.save(album)
             .then(() => {
                 return this.savedResult = 'SUCCESS'

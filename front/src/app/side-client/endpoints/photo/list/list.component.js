@@ -3,7 +3,7 @@ import template from './list.html';
 class ListController {
     constructor($log, $stateParams, PhotoManager, AlbumManager, Loader, $state) {
         "ngInject";
-        this.page = $stateParams.page || 1;
+        this.page = $stateParams.page <= 0 ? 1 : $stateParams.page;
         this._PhotoManager = PhotoManager;
         this._AlbumManager = AlbumManager;
         this._$state = $state;

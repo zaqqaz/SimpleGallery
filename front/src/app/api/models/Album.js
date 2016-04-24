@@ -3,7 +3,7 @@ class Album {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.image = image;
+        this.image = image || {};;
     }
 
     get image_url() {

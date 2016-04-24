@@ -6,7 +6,7 @@ class ListController {
         this._AlbumManager = AlbumManager;
         this._$state = $state;
         this._Loader = Loader;
-        this.page = $stateParams.page || 1;
+        this.page = $stateParams.page <= 0 ? 1 : $stateParams.page;
         this.albums = [];
         this.totalCount = 0;
         this.itemsPerPage = 9;
@@ -28,7 +28,6 @@ class ListController {
 
     loadAlbums() {
         this._Loader.start();
-        console.log(this.itemsPerPage);
         return this._AlbumManager.query({limit: this.itemsPerPage, offset: (this.page-1) * this.itemsPerPage})
             .then(([albums, headers])=> {
                 this.albums = albums;

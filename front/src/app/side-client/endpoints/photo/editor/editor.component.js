@@ -29,6 +29,10 @@ class EditorController {
     }
 
     save(photo) {
+        if(!photo.name || photo.image.id){
+            throw new Error('Please fill the required fields');
+        }
+
         return this._PhotoManager.save(photo)
             .then(() => {
                 return this.savedResult = 'SUCCESS'
