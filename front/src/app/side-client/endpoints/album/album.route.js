@@ -3,7 +3,7 @@ function routeConfig($stateProvider) {
 
     $stateProvider
         .state('albums', {
-            url: '/albums',
+            url: '/albums/:page',
             template: '<list-albums class="album"></list-albums>'
         });
 

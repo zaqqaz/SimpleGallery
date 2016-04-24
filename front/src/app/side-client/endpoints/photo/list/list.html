@@ -1,7 +1,7 @@
 <div class="back" ui-sref="albums">
     <span class="icon glyphicon glyphicon-chevron-left"></span>
 </div>
-<div class="container">
+<div class="container"  ng-if="$ctrl.initialized">
     <div class="header">
         <div class="col-xs-4">
             <img ng-src="{{$ctrl.album.image_url}}" title="{{$ctrl.album.name}}"/>
@@ -26,7 +26,7 @@
             </div>
         </image-viewer>
 
-        <div class="item edit" ui-sref="photoEditor({id:'create'})">
+        <div class="item edit" ui-sref="photoEditor({photoId:'create', albumId: $ctrl.albumId})">
             <span class="icon glyphicon glyphicon-plus"></span>
         </div>
     </div>

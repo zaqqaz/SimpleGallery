@@ -12,8 +12,8 @@ class AlbumManager {
         return this.api.album.get({id: AlbumId});
     }
 
-    query() {
-        return this.api.album.query();
+    query(queryParams = {}) {
+        return this.api.album.query(queryParams);
     }
 
     save(album) {

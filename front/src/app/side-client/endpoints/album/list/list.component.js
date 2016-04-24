@@ -1,15 +1,15 @@
 import template from './list.html';
 
 class ListController {
-    constructor($log, $stateParams, AlbumManager, Loader) {
+    constructor($log, $stateParams, AlbumManager, Loader, $state) {
         "ngInject";
         this._AlbumManager = AlbumManager;
-        this.page = $stateParams.page;
+        this._$state = $state;
         this._Loader = Loader;
+        this.page = $stateParams.page || 1;
         this.albums = [];
         this.totalCount = 0;
-        this.itemsPerPage = 0;
-        this.limit = 9;
+        this.itemsPerPage = 9;
 
         this.activate();
     }
@@ -18,14 +18,18 @@ class ListController {
         this.loadAlbums().then(() => this.initialized = true);
     }
 
+    get currentPage(){
+        return this.page;
+    }
+
     set currentPage(page) {
-        this.page = page;
-        this.loadAlbums();
+        this._$state.go('albums', {page: page});
     }
 
     loadAlbums() {
         this._Loader.start();
-        return this._AlbumManager.query({limit: this.limit, offset: this.page * this.limit})
+        console.log(this.itemsPerPage);
+        return this._AlbumManager.query({limit: this.itemsPerPage, offset: (this.page-1) * this.itemsPerPage})
             .then(([albums, headers])=> {
                 this.albums = albums;
                 this.totalCount = headers['x-total-count'];
