@@ -17,8 +17,6 @@ class Version20160414160656 extends AbstractMigration
     {
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() != 'postgresql', 'Migration can only be executed safely on \'postgresql\'.');
-
-        $this->addSql('DROP SEQUENCE exercise_id_seq CASCADE');
         $this->addSql('CREATE SEQUENCE gallery_photo_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
         $this->addSql('CREATE TABLE file_image (id INT NOT NULL, path VARCHAR(255) NOT NULL, original_name VARCHAR(255) NOT NULL, name VARCHAR(255) NOT NULL, PRIMARY KEY(id))');
         $this->addSql('CREATE TABLE gallery_album (id INT NOT NULL, image_id INT DEFAULT NULL, name VARCHAR(255) NOT NULL, description TEXT NOT NULL, is_deleted BOOLEAN DEFAULT \'false\' NOT NULL, params JSON NOT NULL, PRIMARY KEY(id))');
