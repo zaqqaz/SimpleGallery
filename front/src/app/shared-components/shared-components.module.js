@@ -4,8 +4,9 @@ import * as angularLocale from './dictionaries/angular-locale_ru';
 import {ru} from './dictionaries/ru';
 
 // Directives
-import clickOnce from './clickOnce/clickOnce.directive';
+import clickOnce from './click-once/click-once.directive';
 import restrictInput from './restrictInput/restrictInput.directive';
+import imageViewer from './image-viewer/image-viewer.directive';
 
 // Services
 import AuthInterceptor from  './auth/auth.interceptor';
@@ -23,6 +24,7 @@ let sharedComponents = angular.module('shared-components', [
     .service('Loader', Loader)
     .directive('clickOnce', () => new clickOnce)
     .directive('restrictInput', () => new restrictInput)
+    .directive('imageViewer', imageViewer)
     .component('loadFile', loadFile)
     ;
 

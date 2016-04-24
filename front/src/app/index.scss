@@ -74,7 +74,7 @@ a.full {
   border-color: $brand-primary;
 }
 
-[ui-sref] {
+[ui-sref], [ng-click] {
   cursor: pointer;
 }
 

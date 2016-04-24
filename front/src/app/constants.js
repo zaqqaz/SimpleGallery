@@ -1,5 +1,5 @@
 export const pagesConstants = {
-    'MAIN': '/login',
+    'MAIN': '/albums',
     'LOGIN': '/login'
 };
 

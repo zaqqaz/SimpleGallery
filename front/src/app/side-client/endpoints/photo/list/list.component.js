@@ -1,9 +1,10 @@
 import template from './list.html';
 
 class ListController {
-    constructor($log, $stateParams, PhotoManager, Loader) {
+    constructor($log, $stateParams, PhotoManager, AlbumManager, Loader) {
         "ngInject";
         this._PhotoManager = PhotoManager;
+        this._AlbumManager = AlbumManager;
         this.albumId = $stateParams.albumId;
         this.page = $stateParams.page;
         this._Loader = Loader;
@@ -16,6 +17,10 @@ class ListController {
     }
 
     activate() {
+        this._AlbumManager.getById(this.albumId)
+            .then((album) => {
+                this.album = album;
+            });
         this.loadPhotos();
     }
 

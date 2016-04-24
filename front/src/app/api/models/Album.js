@@ -6,7 +6,7 @@ class Album {
         this.image = image;
     }
 
-    get imageUrl() {
+    get image_url() {
         return this.image.path + this.image.name;
     }
 

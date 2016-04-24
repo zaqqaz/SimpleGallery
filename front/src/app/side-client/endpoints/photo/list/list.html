@@ -1,13 +1,30 @@
+<div class="back" ui-sref="albums">
+    <span class="icon glyphicon glyphicon-chevron-left"></span>
+</div>
 <div class="container">
-    <h1>Your Photos</h1>
-    <div class="list">
-        <div class="item" ng-repeat="photo in $ctrl.photos">
-            <img ng-src="{{photo.imageUrl}}" title="{{photo.title}}"/>
-            <div class="on-hover">
-                <div class="title">{{photo.name}}</div>
-                <div class="description">{{photo.description}}</div>
-            </div>
+    <div class="header">
+        <div class="col-xs-4">
+            <img ng-src="{{$ctrl.album.image_url}}" title="{{$ctrl.album.name}}"/>
         </div>
+        <div class="col-xs-8">
+            <h1>{{$ctrl.album.name}}</h1>
+            <div class="description">{{$ctrl.album.description}}</div>
+        </div>
+    </div>
+    <div class="list">
+
+        <image-viewer image="photo.image_url"
+                      title="photo.name"
+                      description="photo.description"
+                      ng-repeat="photo in $ctrl.photos">
+            <div class="item">
+                <img ng-src="{{photo.image_url}}" title="{{photo.title}}"/>
+                <div class="on-hover">
+                    <div class="title">{{photo.name}}</div>
+                    <div class="description">{{photo.description}}</div>
+                </div>
+            </div>
+        </image-viewer>
 
         <div class="item edit" ui-sref="photoEditor({id:'create'})">
             <span class="icon glyphicon glyphicon-plus"></span>

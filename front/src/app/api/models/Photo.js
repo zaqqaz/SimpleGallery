@@ -11,6 +11,10 @@ class Photo {
         return this.album.id;
     }
 
+    get image_url() {
+        return this.image.path + this.image.name;
+    }
+
     beforeSave() {
         this.image = this.image.id;
     }

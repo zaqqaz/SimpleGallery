@@ -1,8 +1,10 @@
 <div class="container" ng-if="$ctrl.initialized">
     <h1>Your Albums</h1>
     <div class="list">
-        <div class="item" ng-repeat="album in $ctrl.albums">
-            <img ng-src="{{album.imageUrl}}" title="{{album.title}}"/>
+        <div class="item"
+             ui-sref="photos({albumId: album.id, page: 0})"
+             ng-repeat="album in $ctrl.albums">
+            <img ng-src="{{album.image_url}}" title="{{album.title}}"/>
             <div class="on-hover">
                 <div class="title">{{album.name}}</div>
                 <div class="description">{{album.description}}</div>

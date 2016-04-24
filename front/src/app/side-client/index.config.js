@@ -12,7 +12,7 @@ function config($logProvider, $translateProvider, ru, $locationProvider,
     });
 
     // Страница "по умолчанию"
-    //$urlRouterProvider.otherwise(pagesConstants.MAIN);
+    $urlRouterProvider.otherwise(pagesConstants.MAIN);
 
     // Настройки кэшера
     angular.extend(CacheFactoryProvider.defaults, {
