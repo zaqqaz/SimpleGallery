@@ -1,7 +1,6 @@
 SimpleGallery project
 =====================
-## Demo - [gallery.denis.by](http://gallery.denis.by/)
-##Screenshots
+### Demo - [gallery.denis.by](http://gallery.denis.by/)
 
 ![gallery2](https://cloud.githubusercontent.com/assets/2823336/14770523/8cc88480-0a7c-11e6-96bc-e9d061869b27.png)
 
